@@ -2,6 +2,7 @@
 #include "stateMachines.h"
 #include "led.h"
 #include "buzzer.h"
+static int sb = 0;
 
 char turn_green_on()	/* only toggle green if red is on!  */
 {
@@ -50,10 +51,10 @@ void buzzer_advance()
     x += 225;
   }
   else{
-    x -= 400;
+    x -= 450;
   }
 
-  char cycles = 2000000 / x;
+  short cycles = 2000000 / x;
   buzzer_set_period(cycles);
 }
     
