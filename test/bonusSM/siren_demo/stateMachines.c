@@ -2,7 +2,7 @@
 #include "stateMachines.h"
 #include "led.h"
 #include "buzzer.h"
-static int sb = 0;
+static int sb = 1;
 
 char turn_green_on()	/* only toggle green if red is on!  */
 {
@@ -19,7 +19,7 @@ char turn_red_on()
 }
 
 void up_state(){
-  static int sb = 1;
+  sb = 1;
   turn_green_on();
 }
 
