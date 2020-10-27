@@ -11,7 +11,7 @@ AS              = msp430-elf-as
 all: toy.elf 
 
 #additional rules for files
-toy.elf: ${COMMON_OBJECTS} blinkMain.o stateMachines.o buzzer.o led.o wdInterruptHandler.o ../lib/libTimer.a
+toy.elf: ${COMMON_OBJECTS} blinkMain.o switches.o stateMachines.o buzzer.o led.o wdInterruptHandler.o ../lib/libTimer.a
 	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^
 
 load: toy.elf
@@ -32,4 +32,4 @@ p2_interrupt_handler.o : switches.h
 
 switches.o: switches.h led.h
 
-blinkMain.o: led.h switches.h buzzer.h
+blinkMain.o: led.h switches.h buzzer.h 
