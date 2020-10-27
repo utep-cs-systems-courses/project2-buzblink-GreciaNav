@@ -18,7 +18,8 @@ void led_update(){
       ledFlags |= LED_GREEN;
       break;
     case 1:
-      ledFlags |= 0;
+      ledFlags |= LED_GREEN;
+      ledFlags |= LED_RED;
       break;
    case 2:
       ledFlags |= LED_RED;

@@ -27,3 +27,9 @@ wdInterruptHandler.o: stateMachines.h
 stateMachines.o: led.h stateMachines.h buzzer.h notes.h
 
 buzzer.o: buzzer.h
+
+p1_interrupt_handler.o : switches.h
+
+switches.o: switches.h led.h
+
+buttonMain.o: libTimer.h led.h switches.h
