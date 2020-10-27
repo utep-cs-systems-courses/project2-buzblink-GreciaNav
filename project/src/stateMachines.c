@@ -4,28 +4,28 @@
 #include "buzzer.h"
 #include "notes.h"
 
-static int sb = 1;
+static int sb = 1; //Determines if we are on up or down state
 
-char turn_green_on()	/* only toggle green if red is on!  */
+char turn_green_on()	//Only green will be on
 {
   green_on = 1;
   red_on = 0;
   led_update();
 }
 
-char turn_red_on()
+char turn_red_on() //Only red will be on
 {
   red_on = 1;
   green_on = 0;
   led_update();
 }
 
-void up_state(){
+void up_state(){ //Up state in main_state_advance
   sb = 1;
   turn_green_on();
 }
 
-void down_state(){
+void down_state(){ //Down state in main_state_advance 
   sb = 0;
   turn_red_on();
 }
@@ -34,11 +34,11 @@ void main_state_advance(){
   static char state = 0;
   switch(state) {
   case 0:
-  case 1:
+  case 1: //Tone goes up in first 2 cases
     up_state();
     state++;
     break;
-  case 2:
+  case 2: //Tone goes down in last case
     down_state();
     state = 0;
   default:
@@ -49,10 +49,10 @@ void main_state_advance(){
 void buzzer_advance()
 {
   static int x = 500;
-  if (sb) {
+  if (sb) { //Goes up if we are on up state
     x += 225;
   }
-  else{
+  else{ //Goes down if we are on down state
     x -= 450;
   }
 
@@ -75,65 +75,97 @@ void buzz_song_advance()
     break;
   case 3: //Break in notes
     buzzer_set_period(0);
+    green_on = 1; //Light on during a break
+    led_update();
     curr_note++;
     break;
   case 4: //Plays note E
     buzzer_set_period(E);
+    green_on = 0;
+    led_update();
     curr_note++;
     break;
   case 5: //Break in notes
     buzzer_set_period(0);
+    red_on = 1; //Light on during a break
+    led_update();
     curr_note++;
     break;
   case 6: //Plays note F, hold 2 beats
     buzzer_set_period(F);
+    red_on = 0; 
+    led_update();
     curr_note++;
     break;
   case 8: //Break in notes
     buzzer_set_period(0);
+    green_on = 1; //Light on during a break
+    led_update();
     curr_note++;
     break;
   case 9: //Plays note D, hold 2 beats
     buzzer_set_period(D);
+    green_on = 0;
+    led_update();
     curr_note++;
     break;
   case 11: //Break in notes
     buzzer_set_period(0);
+    red_on = 1; //Light on during a break
+    led_update();
     curr_note++;
     break;
   case 12: //Plays note E
     buzzer_set_period(E);
+    red_on = 0; //Light on during a break
+    led_update();
     curr_note++;
     break;
   case 13: //Break in notes
     buzzer_set_period(0);
+    green_on = 1; //Light on during a break
+    led_update();
     curr_note++;
     break;
   case 14: //Plays note E
     buzzer_set_period(E);
+    green_on = 0; //Light on during a break
+    led_update();
     curr_note++;
     break;
   case 15: //Break in notes
     buzzer_set_period(0);
+    red_on = 1; //Light on during a break
+    led_update();
     curr_note++;
     break;
   case 16: //Plays note E
     buzzer_set_period(E);
+    red_on = 0; //Light on during a break
+    led_update();
     curr_note++;
     break;
-  case 17:
+  case 17: //Break in notes
     buzzer_set_period(0);
+    green_on = 1; //Light on during a break
+    led_update();
     curr_note++;
   case 18: //Plays note C, hold 2 beats
     buzzer_set_period(Cn);
+    green_on = 0; //Light on during a break
+    led_update();
     curr_note++;
     break;
   case 20: //Break in notes
     buzzer_set_period(0);
+    red_on = 1; //Light on during a break
+    led_update();
     curr_note++;
     break;
   case 21: //Plays note A#, hold 2 beats
     buzzer_set_period(ASH);
+    red_on = 0; //Light on during a break
+    led_update();
     curr_note++;
     break;
   case 23: //Plays note D, hold 2 beats

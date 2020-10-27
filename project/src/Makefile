@@ -22,13 +22,13 @@ clean:
 
 led.o: led.c led.h
 
-wdInterruptHandler.o: stateMachines.h
+wdInterruptHandler.o: stateMachines.h led.h switches.h buzzer.h
 
 stateMachines.o: led.h stateMachines.h buzzer.h notes.h
 
-buzzer.o: buzzer.h
+buzzer.o: buzzer.h 
 
-p1_interrupt_handler.o : switches.h
+p2_interrupt_handler.o : switches.h
 
 switches.o: switches.h led.h
 
