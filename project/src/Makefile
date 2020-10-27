@@ -32,4 +32,4 @@ p2_interrupt_handler.o : switches.h
 
 switches.o: switches.h led.h
 
-buttonMain.o: libTimer.h led.h switches.h
+blinkMain.o: led.h switches.h buzzer.h
