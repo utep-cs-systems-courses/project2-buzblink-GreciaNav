@@ -6,7 +6,7 @@
 #define SW3 BIT2		/* switch3 is p1.2 */
 #define SW4 BIT3		/* switch4 is p0.3 */
 
-#define SWITCHES SW1 | SW2 | SW3 | SW4 /* 4 switches on the board */
+#define SWITCHES (SW1 | SW2 | SW3 | SW4) /* 4 switches on the board */
 
 void switch_init();
 void switch_interrupt_handler();
