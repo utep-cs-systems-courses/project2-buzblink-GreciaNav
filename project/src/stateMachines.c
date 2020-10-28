@@ -4,8 +4,8 @@
 #include "buzzer.h"
 #include "notes.h"
 
-static int sb = 1; //Determines if we are on up or down state
-char button_state;
+static char sb = 1; //Determines if we are on up or down state
+//char button_state;
 
 void turn_green_on()	//Only green will be on
 {
