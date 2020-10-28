@@ -5,15 +5,16 @@
 #include "notes.h"
 
 static int sb = 1; //Determines if we are on up or down state
+char button_state;
 
-char turn_green_on()	//Only green will be on
+void turn_green_on()	//Only green will be on
 {
   green_on = 1;
   red_on = 0;
   led_update();
 }
 
-char turn_red_on() //Only red will be on
+void turn_red_on() //Only red will be on
 {
   red_on = 1;
   green_on = 0;
@@ -46,7 +47,12 @@ void main_state_advance(){
   }
 }
 
-void buzzer_advance()
+/*void stateMachine_init()
+{
+  button_state = 0;
+  }*/
+
+void buzzer_advance() //Plays song
 {
   static int x = 500;
   if (sb) { //Goes up if we are on up state

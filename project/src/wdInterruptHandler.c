@@ -8,8 +8,6 @@ char button_state = 0;
 void
 __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
   static char blink_count = 0;
-  static char green_state = 0;
-  static char red_state = 0;
   
   if (++blink_count == 62 && button_state == 0) { //Called roughly every 1/4th of a sec
     buzz_song_advance();
