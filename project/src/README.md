@@ -1,31 +1,28 @@
-## Description
-This interrupt-driven program flashes the LEDs in a silly pattern.
+Project 2: Blinky-Buzzy Toy
+===========================
 
-## Exploration
+## Description:
+This interrupt-driven program flashes the LEDs, and plays buzzing sounds in a
+silly pattern. Depending on what button you press (On the green board), a
+different action will happen!
 
-_Write some some code in Assembly Language_
+## Button Functions:
+On the green board, there are four buttons. On top, you can see each button is
+labeled S1-S4 going from left to right. The following descriptions will use
+this naming convention for the buttons.
 
-Translate led.c to led_s.s, and modify the Makefile to reference it.  Remember
+- Pressing **S1**: This button will make a tune play. This song is the opening
+    theme of Sonic The Hedgehog! Notice how the red and green led turn on and
+    alternate when there is a break in between notes.
 
-* to put global and static vars in the data segment and instructions in the
-text segment using the .data and .text directives,
-* to make global symbols visible to other modules using .global, and
-* to import external symbols from other modules with .extern
+- Pressing **S2**: This button will make a siren pattern play. The siren is
+  also a mini rhythm game! If you press S3 or S4 right when the siren displays the
+  green LED, when you press S2 again, the siren's pitch will
+  increase. Similarly, if you press S3 or S4 right when the siren displays the
+  red LED, when you press S2 again, the siren's pitch will decrease. 
 
-_Changing speed:_ Figure out how to flash the lights faster or slower.  Determine if there's a speed where the lights don't appear to flash... but glow instead!
+- Pressing **S3**: This button turns off the buzzer, and causes only the green
+  LED to turn on.
 
-_Counting to three:_  Change the program to slowly and repeatedly
-count from zero to three, displaying the value in binary using the red
-& green lights. This is simpler than the program we provided.
-
-## Some Advice
-When creating your own variants to the demo programs,
-it's probably a good idea to keep a copy of the original program (or really understand how _git checkout_ works).  
-
-
-
-
-
-
-
-
+- Pressing **S4**: This button turns off the buzzer, and causes only the red
+  LED to turn on.
