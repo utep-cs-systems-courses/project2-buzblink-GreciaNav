@@ -30,12 +30,12 @@ switch_interrupt_handler()
 {
   char p2val = switch_update_interrupt_sense();
   
-  if ((p2val & SW1) == 0)
+  if ((p2val & SW1) == 0) //Button 1 was pressed
     button_state = 0;
-  else if ((p2val & SW2) == 0) 
+  else if ((p2val & SW2) == 0) //Button 2 was pressed
     button_state = 1;
-  else if ((p2val & SW3) == 0) 
+  else if ((p2val & SW3) == 0) //Button 3 was pressed
     button_state = 2;
-  else if ((p2val & SW4) == 0)
+  else if ((p2val & SW4) == 0) //Button 4 was pressed
     button_state = 3;
 }
