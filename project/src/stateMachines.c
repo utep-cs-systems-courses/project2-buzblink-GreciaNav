@@ -5,9 +5,8 @@
 #include "notes.h"
 
 static char sb = 1; //Determines if we are on up or down state
-//char button_state;
 
-void turn_green_on()	//Only green will be on
+void turn_green_on() //Only green will be on
 {
   green_on = 1;
   red_on = 0;
@@ -31,7 +30,7 @@ void down_state(){ //Down state in main_state_advance
   turn_red_on();
 }
 
-void main_state_advance(){
+void siren_state_advance(){ //Controls siren 
   static char state = 0;
   switch(state) {
   case 0:
@@ -47,12 +46,7 @@ void main_state_advance(){
   }
 }
 
-/*void stateMachine_init()
-{
-  button_state = 0;
-  }*/
-
-void buzzer_advance() //Plays song
+void buzzer_advance() //Plays siren
 {
   static int x = 500;
   if (sb) { //Goes up if we are on up state
@@ -66,7 +60,7 @@ void buzzer_advance() //Plays song
   buzzer_set_period(cycles);
 }
 
-void buzz_song_advance()
+void buzz_song_advance() //Plays Sonic song
 {
   static char curr_note = 0;
 

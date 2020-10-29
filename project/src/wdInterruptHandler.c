@@ -7,23 +7,23 @@
 char button_state = 0;
 void
 __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
-  static char blink_count = 0;
+  static char blink_buz_count = 0;
 
-  if (++blink_count == 62 && button_state == 0) { //Called roughly every 1/4th of a sec
+  if (++blink_buz_count == 62 && button_state == 0) { //Called per 1/4th of a sec, plays song
     buzz_song_advance();
-    blink_count = 0;
+    blink_buz_count = 0;
   }
-  else if ((blink_count % 25) == 0 && button_state == 1) //Sound and blink pattern
+  else if ((blink_buz_count % 25) == 0 && button_state == 1) //Siren buzz
      buzzer_advance();
-  else if ((blink_count == 62) && button_state == 1) {
-    main_state_advance();
-    blink_count = 0;
+  else if ((blink_buz_count == 62) && button_state == 1) { //Advances siren state, switches leds
+    siren_state_advance();
+    blink_buz_count = 0;
   }
-  else if (button_state == 2) {
+  else if (button_state == 2) { //Only green led on, buzzer off
     buzzer_set_period(0);
     turn_green_on();
   }
-  else if (button_state == 3) {
+  else if (button_state == 3) { //Only red led on, buzzer off
     buzzer_set_period(0);
     turn_red_on();
   }
