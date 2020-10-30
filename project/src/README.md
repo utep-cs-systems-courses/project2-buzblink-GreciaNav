@@ -9,10 +9,8 @@ different action will happen!
 ## How to Compile and Run:
 1. Inside src, type "make all" (No quotes). A file called "toy.elf" will be
 generated.
-
-2. Plug in your MSP430 to your computer, and type "make load" (No quotes). Now
-whenever your MSP430 is plugged in, the program run.
-
+2. Plug in your MSP430 to your computer, and inside src type "make load" (No quotes). Now
+whenever your MSP430 is plugged in, the program will run.
 3. If desired, type "make clean" (No quotes) to remove all compiled and .o
 files.
 
