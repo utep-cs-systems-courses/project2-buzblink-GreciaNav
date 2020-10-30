@@ -5,6 +5,84 @@
 #include "notes.h"
 
 static char sb = 1; //Determines if we are on up or down state
+static char toggle_state = 0; //Determines current toggle state for dimming
+
+void toggle_red()		
+{
+  switch (toggle_state) {
+  case 0: //Red on
+    red_on = 1;
+    toggle_state = 1;
+    break;
+  case 1: //Red off
+    red_on = 0;
+    toggle_state = 0;
+    break;
+  }
+  led_update();
+}
+
+void toggle_red2()
+{
+  switch (toggle_state) {
+  case 0: //Red on
+    red_on = 1;
+    toggle_state = 1;
+    break;
+  case 1: //Red on 
+    red_on = 1;
+    toggle_state = 2;
+    break;
+  case 2: //Red off
+    red_on = 0;
+    toggle_state = 0;
+    break;
+  }
+  led_update();
+}  
+
+void toggle_red3()
+{
+  switch (toggle_state) {
+  case 0: //Red off
+    red_on = 0;
+    toggle_state = 1;
+    break;
+  case 1: //Red off
+    red_on = 0;
+    toggle_state = 2;
+    break;
+  case 2: //Red on
+    red_on = 1;
+    toggle_state = 0;
+    break;
+  }
+  led_update();
+}
+  
+void dim()
+{
+  static char dim_state = 0;
+  switch (dim_state) {
+  case 0: //Dim intensity 1
+    toggle_red();
+    toggle_red();
+    dim_state = 1;
+    break;
+  case 1: //Dim intensity 2
+    toggle_red2();
+    toggle_red2();
+    toggle_red2();
+    dim_state = 2;
+    break;
+  case 2: //Dim intensity 3
+    toggle_red3();
+    toggle_red3();
+    toggle_red3();
+    dim_state = 0;
+    break;
+  }
+}  
 
 void turn_green_on() //Only green will be on
 {

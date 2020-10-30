@@ -16,13 +16,13 @@ this naming convention for the buttons.
     alternate when there is a break in between notes.
 
 - Pressing **S2**: This button will make a siren pattern play. The siren is
-  also a mini rhythm game! If you press S3 or S4 right when the siren displays the
+  also a mini rhythm game! If you press S3 right when the siren displays the
   green LED, when you press S2 again, the siren's pitch will
-  increase. Similarly, if you press S3 or S4 right when the siren displays the
+  increase. Similarly, if you press S3 right when the siren displays the
   red LED, when you press S2 again, the siren's pitch will decrease. 
 
 - Pressing **S3**: This button turns off the buzzer, and causes only the green
   LED to turn on.
 
-- Pressing **S4**: This button turns off the buzzer, and causes only the red
-  LED to turn on.
+- Pressing **S4**: This button turns off the buzzer, and makes de red LED turn
+  on with different dim intensities.

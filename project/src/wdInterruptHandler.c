@@ -23,8 +23,9 @@ __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
     buzzer_set_period(0);
     turn_green_on();
   }
-  else if (button_state == 3) { //Only red led on, buzzer off
+  else if ((blink_buz_count == 3) && button_state == 3) { //Only red led on, buzzer off
     buzzer_set_period(0);
-    turn_red_on();
+    dim();
+    blink_buz_count = 0;
   }
 }
