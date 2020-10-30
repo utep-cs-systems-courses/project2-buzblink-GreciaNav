@@ -6,6 +6,16 @@ This interrupt-driven program flashes the LEDs, and plays buzzing sounds in a
 silly pattern. Depending on what button you press (On the green board), a
 different action will happen!
 
+## How to Compile and Run:
+1. Inside src, type "make all" (No quotes). A file called "toy.elf" will be
+generated.
+
+2. Plug in your MSP430 to your computer, and type "make load" (No quotes). Now
+whenever your MSP430 is plugged in, the program run.
+
+3. If desired, type "make clean" (No quotes) to remove all compiled and .o
+files.
+
 ## Button Functions:
 On the green board, there are four buttons. On top, you can see each button is
 labeled S1-S4 going from left to right. The following descriptions will use
