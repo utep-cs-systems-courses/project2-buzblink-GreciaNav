@@ -7,7 +7,7 @@
 static char sb = 1; //Determines if we are on up or down state
 static char toggle_state = 0; //Determines current toggle state for dimming
 
-void toggle_red()		
+void toggle_red() //Red at 50% intensity		
 {
   switch (toggle_state) {
   case 0: //Red on
@@ -22,7 +22,7 @@ void toggle_red()
   led_update();
 }
 
-void toggle_red2()
+void toggle_red75() //Red at 75% intensity
 {
   switch (toggle_state) {
   case 0: //Red on
@@ -41,7 +41,7 @@ void toggle_red2()
   led_update();
 }  
 
-void toggle_red3()
+void toggle_red25() //Red at 25% intensity
 {
   switch (toggle_state) {
   case 0: //Red off
@@ -64,21 +64,21 @@ void dim()
 {
   static char dim_state = 0;
   switch (dim_state) {
-  case 0: //Dim intensity 1
+  case 0: //Dim intensity 50
     toggle_red();
     toggle_red();
     dim_state = 1;
     break;
-  case 1: //Dim intensity 2
-    toggle_red2();
-    toggle_red2();
-    toggle_red2();
+  case 1: //Dim intensity 75
+    toggle_red75();
+    toggle_red75();
+    toggle_red75();
     dim_state = 2;
     break;
-  case 2: //Dim intensity 3
-    toggle_red3();
-    toggle_red3();
-    toggle_red3();
+  case 2: //Dim intensity 25
+    toggle_red25();
+    toggle_red25();
+    toggle_red25();
     dim_state = 0;
     break;
   }
